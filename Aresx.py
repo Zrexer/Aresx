@@ -163,7 +163,6 @@ class colors:
     yellow = '\033[93m'
     magenta = '\033[95m'
     cyan = '\033[96m'
-    white = '\033[97m'
     bold = '\033[1m'
     underline = '\033[4m'
     black='\033[30m'
@@ -311,6 +310,19 @@ class handler:
                         with open(fileName, 'a') as frasd: 
                             frasd.write(f'\n{hashToCreateInName}')
                             frasd.close()
+                            
+                else:
+                    if "--type" in user.split():
+                        type_ = user.split()[user.split().index("--type")+1]
+                        text = user.split()[user.split().index("hash")+1]
+                        hashToCreateInName = createHasher(text=text, type_of_encrypt=type_)
+                        print(f'{colors.blue}[{colors.pink}{colors.BackRed}+{colors.white}{colors.blue}] {colors.yellow}{hashToCreateInName}')
+
+                    else:
+                        text = user.split()[user.split().index("hash")+1]
+                        hashToCreateInName = createHasher(text=text, type_of_encrypt="random")
+                        print(f'{colors.blue}[{colors.pink}{colors.BackRed}+{colors.white}{colors.blue}] {colors.yellow}{hashToCreateInName}')
+
                             
             elif "hash-type" in user.split() or "hash-types" in user.split():
                 print(f'{colors.blue}[{colors.pink}{colors.BackRed}+{colors.white}{colors.blue}] {colors.yellow}{hashlist}')
