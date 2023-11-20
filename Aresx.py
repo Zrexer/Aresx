@@ -258,7 +258,7 @@ class handler:
 
     def activity():
         while 1:
-            user = str(input(f'\n{colors.white}{colors.underline}Ares{colors.white} > '))
+            user = str(input(f'\n{colors.white}{colors.underline}Aresx{colors.white} > '))
             if user == "help":
                 numbers = [0, 1, 2, 3, 4, 5]
                 for nums in numbers:   
